@@ -17,44 +17,79 @@
       a:hover {
         text-decoration: underline;
       }
-      .color-info {
-        margin-top: 40px;
+      .project-section {
+        margin-bottom: 40px;
         padding: 20px;
         background: rgba(58, 58, 90, 0.2);
         border-radius: 8px;
-        width: fit-content;
+        width: 80%;
+        max-width: 600px;
       }
-      .color-info .bg {
-        color: #01021B;
-        background: #DA1B78;
-        padding: 2px 8px;
-        border-radius: 4px;
-        margin-bottom: 6px;
-        display: inline-block;
-      }
-      .color-info .text {
-        color: #DA1B78;
-        background: #01021B;
-        padding: 2px 8px;
-        border-radius: 4px;
-        margin-bottom: 6px;
-        display: inline-block;
-      }
-      .color-info .link {
+      .project-title {
+        font-size: 1.5em;
         color: #3F4C7A;
-        background: #fff;
-        padding: 2px 8px;
-        border-radius: 4px;
-        display: inline-block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .project-desc {
+        font-size: 1em;
+        color: #fff;
+        min-height: 40px;
+      }
+      .see-all-projects {
+        margin-bottom: 40px;
+        padding: 20px;
+        background: rgba(58, 58, 90, 0.2);
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+      }
+      .see-all-title {
+        font-size: 1.3em;
+        color: #DA1B78;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .see-all-link {
+        color: #3F4C7A;
+        font-size: 1em;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .see-all-link:hover {
+        text-decoration: underline;
       }
     </style>
 </head>
 <body>
-    <div>
-        <h1>My Projects</h1>
-        <ul>
-            
-        </ul>
+    <h1>My Projects</h1>
+    <div class="project-section">
+      <div class="project-title">School Manager</div>
+      <div class="project-desc">
+        <p>Spearheaded development with a two-man group on an electronic database application that is capable of storing
+several objects like classrooms, teachers, subjects, and students each holding information about one another.</p>
+      </div>
+    </div>
+    <div class="project-section">
+      <div class="project-title">Platformer</div>
+      <div class="project-desc">
+        <p>Designed a 2D single player platformer using keyboard and mouse input on a player character along with 3 enemies
+each with unique scripts and animations.</p>
+      </div>
+    </div>
+    <div class="project-section">
+      <div class="project-title">Tower of Hanoi</div>
+      <div class="project-desc">
+        <p>Implemented a virtual Tower of Hanoi game using File I/O to create Savable Game States utilizing data structures
+(stacks and heaps), to run the game smoothly and simply.</p>
+      </div>
+    </div>
+    <div class="project-section">
+      <div class="project-title">See all projects</div>
+      <div class="project-desc" style="text-align:center;">
+        <a href="https://github.com/Rahul-Gonsalves" target="_blank">Visit my GitHub</a>
+      </div>
     </div>
 </body>
 </html>
