@@ -1,0 +1,118 @@
+body {
+  background-color: #01021B;
+  color: #DA1B78;
+  font-family: Arial, sans-serif;
+}
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 1em;
+}
+.top-right a {
+  color: #3F4C7A;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: bold;
+}
+.top-left {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 2em;
+  color: #3F4C7A;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.contact-list {
+  position: absolute;
+  top: 65px; /* just below RG */
+  left: 30px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-list li {
+  margin-bottom: 8px;
+}
+.contact-list a {
+  color: #3F4C7A;
+  text-decoration: none;
+  font-size: 1em;
+}
+.middle-left {
+  position: absolute;
+  top: 40%;
+  left: 200px;
+  text-align: left;
+}
+.middle-left .name-label {
+  font-size: 1.1em;
+  color: #DA1B78;
+  margin-bottom: 8px;
+  display: block;
+}
+.middle-left .name {
+  font-size: 2em;
+  color: #DA1B78;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block
+}
+.middle-left .description {
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 10px;
+  display: block;
+  max-width: 420px; 
+  word-wrap: break;
+}
+
+/* Portfolio page styles */
+.project-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(58, 58, 90, 0.2);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+.project-title {
+  font-size: 1.5em;
+  color: #3F4C7A;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.project-desc {
+  font-size: 1em;
+  color: #fff;
+  min-height: 40px;
+  text-align: left;
+}
+
+/* Service page styles */
+.service-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(58, 58, 90, 0.2);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+.service-section h2 {
+  color: #3F4C7A;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.service-section h3 {
+  color: #DA1B78;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+.service-section ul {
+  color: #fff;
+  font-size: 1em;
+  margin-left: 20px;
+}

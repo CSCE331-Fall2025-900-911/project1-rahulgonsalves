@@ -3,77 +3,7 @@
 <head>
 <title>Rahul Gonsalves</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<style>
-  body {
-    background-color: #01021B;
-    color: #DA1B78;
-    font-family: Arial, sans-serif;
-  }
-  .top-right {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 1em;
-  }
-  .top-right a {
-    color: #3F4C7A;
-    text-decoration: none;
-    margin-left: 18px;
-    font-weight: bold;
-  }
-  .top-left {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    font-size: 2em;
-    color: #3F4C7A;
-    font-weight: bold;
-    letter-spacing: 2px;
-  }
-  .contact-list {
-    position: absolute;
-    top: 65px; /* just below RG */
-    left: 30px;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  .contact-list li {
-    margin-bottom: 8px;
-  }
-  .contact-list a {
-    color: #3F4C7A;
-    text-decoration: none;
-    font-size: 1em;
-  }
-  .middle-left {
-    position: absolute;
-    top: 40%;
-    left: 200px;
-    text-align: left;
-  }
-  .middle-left .name-label {
-    font-size: 1.1em;
-    color: #DA1B78;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .middle-left .name {
-    font-size: 2em;
-    color: #DA1B78;
-    font-weight: bold;
-    margin-bottom: 8px;
-    display: block
-  }
-  .middle-left .description {
-    font-size: 1.2em;
-    color: #fff;
-    margin-top: 10px;
-    display: block;
-    max-width: 420px; 
-    word-wrap: break-word;
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -101,6 +31,8 @@
     <a href="service.html">03. Services</a>
     <a href="genai.html">04. GenAI</a>
   </div>
+  <button onclick = "toggleBackground()"> toggleBackground </button>
+  <script src="functions.js"></script>
   <div class="middle-left" style="width: 50%;">
     <span class="name-label">My name is</span>
     <span class="name">Rahul Gonsalves</span>
