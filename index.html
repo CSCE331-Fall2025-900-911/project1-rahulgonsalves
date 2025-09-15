@@ -3,10 +3,13 @@
 <head>
 <title>Rahul Gonsalves</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" href="styles.css">
+<link id="main-style" rel="stylesheet" href="styles.css">
+<link id="alt-style" rel="stylesheet" href="styles2.css" disabled>
+<button onclick="switchCSS()">Switch Style</button>
 </head>
 
 <body>
+  
   <div class="top-left">
     RG
   </div>
@@ -31,13 +34,16 @@
     <a href="service.html">03. Services</a>
     <a href="genai.html">04. GenAI</a>
   </div>
-  <button onclick = "toggleBackground()"> toggleBackground </button>
-  <script src="functions.js"></script>
+  
+  <button class="pop-bubbles-btn">Pop all bubbles</button>
+  <!-- The slider will be injected by JS as .bubble-slider-container -->
+
   <div class="middle-left" style="width: 50%;">
     <span class="name-label">My name is</span>
     <span class="name">Rahul Gonsalves</span>
     <span class="description">A junior web developer attending Texas A&M University. I am passionate about creating unique and useful web applications.</span>
   </div>
   <img src="imgs/IMG_6437.JPG" alt="Profile Image" style="position: absolute; top: 40%; left: 55%; transform: translateY(-50%); width: 180px; height: auto; border-radius: 12px;">
+  <script src="functions.js"></script>
 </body>
 </html>
