@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link id="main-style" rel="stylesheet" href="styles.css">
 <link id="alt-style" rel="stylesheet" href="styles2.css" disabled>
-<button onclick="switchCSS()">Switch Style</button>
+<button class="switch-style-btn" onclick="switchCSS()">Switch Style</button>
 </head>
 
 <body>
@@ -28,6 +28,7 @@
       </a>
     </li>
   </ul>
+  <div class="vertical-line"></div>
   <div class="top-right">
     <a href="portfolio.html">01. Portfolio</a>
     <a href="qualifications.html">02. Qualifications</a>
@@ -36,14 +37,15 @@
   </div>
   
   <button class="pop-bubbles-btn">Pop all bubbles</button>
+  <div class="vertical-line-up"></div>
   <!-- The slider will be injected by JS as .bubble-slider-container -->
 
   <div class="middle-left" style="width: 50%;">
     <span class="name-label">My name is</span>
     <span class="name">Rahul Gonsalves</span>
-    <span class="description">A junior web developer attending Texas A&M University. I am passionate about creating unique and useful web applications.</span>
+    <span class="description">A junior web developer attending Texas A&M University. I am passionate about creating unique and useful applications.</span>
   </div>
-  <img src="imgs/IMG_6437.JPG" alt="Profile Image" style="position: absolute; top: 40%; left: 55%; transform: translateY(-50%); width: 180px; height: auto; border-radius: 12px;">
+  <img src="imgs/IMG_6437.JPG" alt="Profile Image" style="position: absolute; top: 50%; left: 60%; transform: translateY(-50%); width: 300px; height: auto; border-radius: 12px;">
   <script src="functions.js"></script>
 </body>
 </html>

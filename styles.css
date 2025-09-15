@@ -1,5 +1,5 @@
 body {
-  background-color: #01021B;
+  background-color: #01021B; 
   color: #DA1B78;
   font-family: Arial, sans-serif;
 }
@@ -40,10 +40,20 @@ body {
   text-decoration: none;
   font-size: 1em;
 }
+.vertical-line {
+  position: absolute;
+  left: 30px;
+  top: 170px;
+  width: 3px;
+  height: 40%;
+  background-color: #DA1B78;
+  border-radius: 2px;
+  z-index: 1001;
+}
 .middle-left {
   position: absolute;
   top: 40%;
-  left: 200px;
+  left: 20%;
   text-align: left;
 }
 .middle-left .name-label {
@@ -165,6 +175,16 @@ body {
   font-weight: bold;
   z-index: 2001;
 }
+.vertical-line-up {
+  position: fixed;
+  right: 30px;
+  bottom: 120px;
+  width: 3px;
+  height: 40%;
+  background-color: #DA1B78;
+  border-radius: 2px;
+  z-index: 1001;
+}
 .pop-bubbles-btn:hover {
   background-color: #DA1B78;
 }
@@ -172,4 +192,24 @@ body {
 img {
   position: absolute;
   z-index: 2000; /* Higher value so image is above bubbles */
+}
+
+.switch-style-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  background-color: #3F4C7A;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 2001;
+}
+
+.switch-style-btn:hover {
+  background-color: #FB4323;
+  color: #fff;
 }

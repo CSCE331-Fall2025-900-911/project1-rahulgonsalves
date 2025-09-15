@@ -1,0 +1,30 @@
+body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-family: 'Ubuntu', sans-serif;
+}
+button {
+    background-color: #FB4323;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bubble-slider-container {
+    display: none !important;
+}
+.bubble-slider-container label {
+    display: none !important;
+}
+.pop-bubbles-btn {
+    display: none !important;
+}

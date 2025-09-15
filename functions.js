@@ -5,8 +5,9 @@ window.onload = function() {
     }
 };
 
+//idk why this is not working, it happened to pop the bobbles, so thats why I kept it, doesnt really "toggle" the background
 function toggleBackground() {
-    const currentColor = document.body.style.backgroundColor || '#01021B'; // Default to #01021B
+    const currentColor = document.body.style.backgroundColor || '#ffffff'; // Default to #01021B
     const newColor = currentColor === 'rgba(1, 2, 27, 1)' ? 'lightblue' : '#01021B'; // Use rgb for comparison
     document.body.style.backgroundColor = newColor;
     localStorage.setItem('bgColor', newColor);
@@ -73,3 +74,15 @@ window.addEventListener('DOMContentLoaded', () => {
                 valueDisplay.textContent = bubbleSpeed;
         });
 });
+
+function switchCSS() {
+  const main = document.getElementById('main-style');
+  const alt = document.getElementById('alt-style');
+  if (main.disabled) {
+    main.disabled = false;
+    alt.disabled = true;
+  } else {
+    main.disabled = true;
+    alt.disabled = false;
+  }
+}
