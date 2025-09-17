@@ -1,8 +1,19 @@
 window.onload = function() {
-    const savedColor = localStorage.getItem('bgColor'); // Fix typo
-    if (savedColor) {
-        document.body.style.backgroundColor = savedColor;
-    }
+        const savedColor = localStorage.getItem('bgColor'); // Fix typo
+        if (savedColor) {
+                document.body.style.backgroundColor = savedColor;
+        }
+        // Load selected stylesheet
+        const selectedStyle = localStorage.getItem('selectedStyle');
+        const main = document.getElementById('main-style');
+        const alt = document.getElementById('alt-style');
+        if (selectedStyle === 'alt') {
+            main.disabled = true;
+            alt.disabled = false;
+        } else {
+            main.disabled = false;
+            alt.disabled = true;
+        }
 };
 
 //idk why this is not working, it happened to pop the bobbles, so thats why I kept it, doesnt really "toggle" the background
@@ -76,13 +87,15 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function switchCSS() {
-  const main = document.getElementById('main-style');
-  const alt = document.getElementById('alt-style');
-  if (main.disabled) {
-    main.disabled = false;
-    alt.disabled = true;
-  } else {
-    main.disabled = true;
-    alt.disabled = false;
-  }
+    const main = document.getElementById('main-style');
+    const alt = document.getElementById('alt-style');
+    if (main.disabled) {
+        main.disabled = false;
+        alt.disabled = true;
+        localStorage.setItem('selectedStyle', 'main');
+    } else {
+        main.disabled = true;
+        alt.disabled = false;
+        localStorage.setItem('selectedStyle', 'alt');
+    }
 }

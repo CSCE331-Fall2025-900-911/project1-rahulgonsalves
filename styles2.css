@@ -2,21 +2,156 @@ body {
     background-color: #FFFFFF !important;
     color: #000000 !important;
     font-family: 'Ubuntu', sans-serif;
-}
-button {
-    background-color: #FB4323;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  overflow: hidden;
 }
 
-button:hover {
-    background-color: white;
-    color: black;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+header {
+    width: 100%;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    background: #fff;
+    padding: 24px 0 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.switch-style-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    background: #FB4323;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(251,67,35,0.12);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.switch-style-btn:hover {
+    background: #DA1B78;
+    color: #fff;
+}
+.top-left {
+    font-size: 2em;
+    color: #FB4323;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-left: 40px;
+    text-shadow: 2px 2px 8px rgba(251,67,35,0.15);
+    transition: transform 0.3s;
+}
+.top-left:hover {
+    transform: scale(1.08) rotate(-3deg);
+
+
+    margin-right: 40px;
+}
+
+.top-right {
+    position: absolute;
+    top: 90%;
+    font-size: 1.5em;
+    margin-top: 14px;
+}
+.top-right a {
+    color: #FB4323;
+    text-decoration: none;
+    margin-left: 24px;
+    margin-top: 14px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.top-right a:hover {
+    color: #000000;
+    text-shadow: 0 2px 8px rgba(251,67,35,0.18);
+}
+        /* Removed contact-list animation */
+.contact-list {
+    margin: 40px 0 0 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 24px rgba(218,27,120,0.08);
+    background: #fff;
+        /* Removed vertical-line animation */
+    width: 260px;
+    min-height: 120px;
+    animation: fadeInUp 1.2s;
+}
+.contact-list li {
+    margin: 18px 0 0 24px;
+    font-size: 1.1em;
+    transition: transform 0.3s;
+
+    color: #FB4323;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.contact-list a:hover {
+    color: #000000;
+}
+
+
+.middle-left {
+    position: absolute;
+    margin: 60px 0 0 0;
+    padding: 32px 40px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(251,67,35,0.08);
+    max-width: 600px;
+    position: relative;
+    font-size: 1.2em;
+    color: #DA1B78;
+    margin-bottom: 12px;
+    display: block;
+    font-weight: bold;
+}
+.middle-left .name{
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 14px;
+    display: block;
+    color: #FB4323;
+}
+
+.name-label {
+    color: #FB4323;
+}
+
+.middle-left .description {
+    font-size: 1.15em;
+    color: #000;
+    margin-top: 10px;
+    max-width: 420px;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(218,27,120,0.18);
 }
 
 .bubble-slider-container {

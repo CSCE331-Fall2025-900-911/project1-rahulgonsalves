@@ -7,7 +7,7 @@ body {
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 .top-right a {
   color: #3F4C7A;
@@ -19,7 +19,7 @@ body {
   position: absolute;
   top: 20px;
   left: 30px;
-  font-size: 2em;
+  font-size: 2.3em;
   color: #3F4C7A;
   font-weight: bold;
   letter-spacing: 2px;
@@ -38,7 +38,7 @@ body {
 .contact-list a {
   color: #3F4C7A;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 1.3em;
 }
 .vertical-line {
   position: absolute;
@@ -57,7 +57,7 @@ body {
   text-align: left;
 }
 .middle-left .name-label {
-  font-size: 1.1em;
+  font-size: 2em;
   color: #DA1B78;
   margin-bottom: 8px;
   display: block;
@@ -189,10 +189,17 @@ body {
   background-color: #DA1B78;
 }
 
-img {
+.main-img {
   position: absolute;
   z-index: 2000; /* Higher value so image is above bubbles */
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
 }
+
 
 .switch-style-btn {
   position: fixed;
