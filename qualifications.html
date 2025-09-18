@@ -3,25 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title Here</title>
-    <style>
-      body {
-        background-color: #01021B;
-        color: #DA1B78;
-        font-family: Arial, sans-serif;
-      }
-      a {
-        color: #3F4C7A;
-        text-decoration: none;
-      }
-      .desc {
-        color: #fff;
-      }
-    </style>
+    <title>Qualifications</title>
+    <link id="main-style" rel="stylesheet" href="styles.css">
+    <link id="alt-style" rel="stylesheet" href="styles2.css" disabled>
 </head>
 <body>
-    <div style="position:absolute; top:20px; right:30px; font-size:1em;">
-      <a href="index.html" style="color:#3F4C7A; text-decoration:none; font-weight:bold;">Home</a>
+    <button class="switch-style-btn" onclick="switchCSS()">Switch Style</button>
+    <div class="top-right">
+      <a href="index.html">Home</a>
     </div>
     <section id="resume">
         <h1>Resume</h1>
@@ -43,5 +32,20 @@
             I am passionate about these fields because they allow me to create innovative solutions, build useful applications, and analyze data to make informed decisions.
         </p>
     </section>
+        <script>
+      function switchCSS() {
+        const main = document.getElementById('main-style');
+        const alt = document.getElementById('alt-style');
+        if (main.disabled) {
+          main.disabled = false;
+          alt.disabled = true;
+          localStorage.setItem('selectedStyle', 'main');
+        } else {
+          main.disabled = true;
+          alt.disabled = false;
+          localStorage.setItem('selectedStyle', 'alt');
+        }
+      }
+    </script>
 </body>
 </html>

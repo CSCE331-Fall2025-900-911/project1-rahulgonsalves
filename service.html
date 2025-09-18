@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Service</title>
-  <link rel="stylesheet" href="styles.css">
+  <link id="main-style" rel="stylesheet" href="styles.css">
+  <link id="alt-style" rel="stylesheet" href="styles2.css" disabled>
 </head>
 <body>
+  <button class="switch-style-btn" onclick="switchCSS()">Switch Style</button>
   <div class="top-right">
     <a href="index.html">Home</a>
   </div>
   <section id="eye-level-learning" class="service-section">
     <h2>Eye Level Learning Corporation, Katy, TX</h2>
-    <h3>Teacher | Math <span style="font-weight:normal;">Aug 2022 – May 2023</span></h3>
+    <h3>Teacher | Math <span style="font-weight:normal;">Aug 2022 - May 2023</span></h3>
     <ul>
       <li>
         Led 12+ students of multiple ages ranging from kindergarten to eighth grade, developing math skills and understanding through school and company assigned work, demonstrated in high level, advanced math for their respective ages.
       </li>
       <li>
-        Communicated with parents about the children’s progression, including struggles and achievements, to foster a better understanding in parents for their child’s math ability.
+        Communicated with parents about the children's progression, including struggles and achievements, to foster a better understanding in parents for their child's math ability.
       </li>
     </ul>
   </section>
   <section id="catholic-mass-service" class="service-section">
-    <h2>Service at Local Catholic Mass</h2>
+    <h2><a href="https://www.aggiecatholic.org" target="_blank" rel="noopener noreferrer">Service at Local Catholic Mass</a></h2>
     <ul>
       <li>
         Assisted as an altar server during local Catholic Mass, supporting the clergy and helping with the preparation and organization of the liturgy.
@@ -35,6 +37,54 @@
       </li>
     </ul>
   </section>
-
+  <section id="houston-food-bank" class="service-section">
+    <h2><a href="https://www.houstonfoodbank.org/" target="_blank" rel="noopener noreferrer">Houston Food Bank Volunteer</a></h2>
+    <ul>
+      <li>
+        Volunteered at the Houston Food Bank, assisting with sorting, packing, and distributing food to families and individuals facing food insecurity in the Greater Houston area.
+      </li>
+      <li>
+        Worked collaboratively with other volunteers and staff to ensure efficient operations and a positive experience for recipients.
+      </li>
+      <li>
+        Helped organize food drives and participated in outreach programs to raise awareness about hunger and the importance of community support.
+      </li>
+      <li>
+        Developed strong teamwork and communication skills while contributing to a meaningful cause and making a tangible impact on the local community.
+      </li>
+    </ul>
+  </section>
+  <section id="odin-project" class="service-section">
+    <h2><a href="https://www.theodinproject.com" target="_blank" rel="noopener noreferrer">The Odin Project Contributor</a></h2>
+    <ul>
+      <li>
+        Contributed to The Odin Project, an open-source curriculum for web development, by helping improve documentation, providing feedback on learning modules, and assisting fellow learners in the community forums.
+      </li>
+      <li>
+        Shared code examples, project solutions, and best practices to support others in mastering HTML, CSS, JavaScript, and backend technologies.
+      </li>
+      <li>
+        Participated in collaborative coding sessions and peer reviews, fostering a supportive and inclusive learning environment.
+      </li>
+      <li>
+        Enhanced my own skills while giving back to a global community of aspiring developers, demonstrating a commitment to lifelong learning and mentorship.
+      </li>
+    </ul>
+  </section>
+      <script>
+      function switchCSS() {
+        const main = document.getElementById('main-style');
+        const alt = document.getElementById('alt-style');
+        if (main.disabled) {
+          main.disabled = false;
+          alt.disabled = true;
+          localStorage.setItem('selectedStyle', 'main');
+        } else {
+          main.disabled = true;
+          alt.disabled = false;
+          localStorage.setItem('selectedStyle', 'alt');
+        }
+      }
+    </script>
 </body>
 </html>

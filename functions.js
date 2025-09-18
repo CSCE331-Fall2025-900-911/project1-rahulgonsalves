@@ -52,8 +52,10 @@ function createBubble() {
     });
 }
 
-// Generate bubbles at intervals
-setInterval(createBubble, 800);
+// Generate bubbles at intervals, unless on portfolio page
+if (!window.isPortfolioPage) {
+    setInterval(createBubble, 800);
+}
 
 // Optional: pop all bubbles when any button is clicked
 document.querySelectorAll('button').forEach(btn => {
@@ -67,23 +69,25 @@ document.querySelectorAll('button').forEach(btn => {
 
 // Add slider for bubble speed
 window.addEventListener('DOMContentLoaded', () => {
-        const sliderContainer = document.createElement('div');
-        sliderContainer.className = 'bubble-slider-container';
-        sliderContainer.innerHTML = `
-            <label for="bubbleSpeed">Bubble Speed:</label>
-            <input type="range" id="bubbleSpeed" min="2" max="16" value="${bubbleSpeed}" step="1">
-            <span style="font-size:0.9em; color:#fff; margin-left:8px;">(Slower ←→ Faster)</span>
-        `;
-        document.body.appendChild(sliderContainer);
+        if (!window.isPortfolioPage) {
+            const sliderContainer = document.createElement('div');
+            sliderContainer.className = 'bubble-slider-container';
+            sliderContainer.innerHTML = `
+                <label for="bubbleSpeed">Bubble Speed:</label>
+                <input type="range" id="bubbleSpeed" min="2" max="16" value="${bubbleSpeed}" step="1">
+                <span style="font-size:0.9em; color:#fff; margin-left:8px;">(Slower ←→ Faster)</span>
+            `;
+            document.body.appendChild(sliderContainer);
 
-        const slider = document.getElementById('bubbleSpeed');
-        const valueDisplay = document.getElementById('bubbleSpeedValue');
-        // Reverse logic: left = slower, right = faster
-        slider.addEventListener('input', function() {
-                // Map slider value: left (min) = slowest, right (max) = fastest
-                bubbleSpeed = 18 - Number(this.value); // 18 - value: min=2→16, so bubbleSpeed=16→2
-                valueDisplay.textContent = bubbleSpeed;
-        });
+            const slider = document.getElementById('bubbleSpeed');
+            const valueDisplay = document.getElementById('bubbleSpeedValue');
+            // Reverse logic: left = slower, right = faster
+            slider.addEventListener('input', function() {
+                    // Map slider value: left (min) = slowest, right (max) = fastest
+                    bubbleSpeed = 18 - Number(this.value); // 18 - value: min=2→16, so bubbleSpeed=16→2
+                    valueDisplay.textContent = bubbleSpeed;
+            });
+        }
 });
 
 function switchCSS() {

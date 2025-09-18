@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
-    <link rel="stylesheet" href="styles.css">
+    <link id="main-style" rel="stylesheet" href="styles.css">
+    <link id="alt-style" rel="stylesheet" href="styles2.css" disabled>
 </head>
 <body>
+    <button class="switch-style-btn" onclick="switchCSS()">Switch Style</button>
     <div class="top-right">
       <a href="index.html">Home</a>
     </div>
@@ -15,7 +17,7 @@
       <!-- First project: text left, image right -->
       <div class="project-row">
         <div class="project-section">
-          <div class="project-title">School Manager</div>
+          <div class="project-title"><a href="https://github.com/Rahul-Gonsalves/school-manager" target="_blank" style="text-decoration:none; color:inherit;">School Manager</a></div>
           <div class="project-desc">
             <p>Spearheaded development with a two-man group on an electronic database application that is capable of storing several objects like classrooms, teachers, subjects, and students each holding information about one another.</p>
           </div>
@@ -30,7 +32,7 @@
           <img src="imgs/asteroid.png" alt="Asteroids" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="project-section">
-          <div class="project-title">Asteroids</div>
+          <div class="project-title"><a href="https://github.com/Rahul-Gonsalves/asteroids" target="_blank" style="text-decoration:none; color:inherit;">Asteroids</a></div>
           <div class="project-desc">
             <p>Designed a 2D single player shooter game where the player controls a spaceship and must destroy asteroids while avoiding collisions.</p>
           </div>
@@ -39,7 +41,7 @@
       <!-- Third project: text left, image right -->
       <div class="project-row">
         <div class="project-section">
-          <div class="project-title">Tower of Hanoi</div>
+          <div class="project-title"><a href="https://github.com/Rahul-Gonsalves/tower-of-hanoi" target="_blank" style="text-decoration:none; color:inherit;">Tower of Hanoi</a></div>
           <div class="project-desc">
             <p>Implemented a virtual Tower of Hanoi game using File I/O to create Savable Game States utilizing data structures (stacks and heaps), to run the game smoothly and simply.</p>
           </div>
@@ -48,17 +50,17 @@
           <img src="imgs/tower.png" alt="Tower of Hanoi" style="width:100%;height:100%;object-fit:cover;">
         </div>
       </div>
-    </div>
-    <!-- GitHub box at the bottom -->
-    <div class="github-row">
-      <div class="project-section" style="text-align:center;">
-        <div class="project-title">See all projects</div>
-        <div class="project-desc">
-          <a href="https://github.com/Rahul-Gonsalves" target="_blank">Visit my GitHub</a>
+      <!-- GitHub box as last grid row -->
+      <div class="project-row">
+        <div class="project-img">
+          <img src="imgs/github.png" alt="GitHub" style="width:100%;height:100%;object-fit:cover;">
         </div>
-      </div>
-      <div class="github-img">
-        <img src="imgs/github.png" alt="GitHub" style="width:100%;height:100%;object-fit:cover;">
+        <div class="project-section" style="text-align:center;">
+          <div class="project-title">See all projects</div>
+          <div class="project-desc">
+            <a href="https://github.com/Rahul-Gonsalves" target="_blank">Visit my GitHub</a>
+          </div>
+        </div>
       </div>
     </div>
 </body>
