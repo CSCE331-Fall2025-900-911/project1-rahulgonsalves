@@ -1,0 +1,329 @@
+body {
+  background-color: #01021B; 
+  color: #DA1B78;
+  font-family: Arial, sans-serif;
+}
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 1.5em;
+}
+.top-right a {
+  color: #3F4C7A;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: bold;
+}
+.top-left {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 2.3em;
+  color: #3F4C7A;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.contact-list {
+  position: absolute;
+  top: 65px; /* just below RG */
+  left: 30px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-list li {
+  margin-bottom: 8px;
+}
+.contact-list a {
+  color: #3F4C7A;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+.vertical-line {
+  position: absolute;
+  left: 30px;
+  top: 180px;
+  width: 3px;
+  height: 40%;
+  background-color: #DA1B78;
+  border-radius: 2px;
+  z-index: 1001;
+}
+.middle-left {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  text-align: left;
+}
+.middle-left .name-label {
+  font-size: 2em;
+  color: #DA1B78;
+  margin-bottom: 8px;
+  display: block;
+}
+.middle-left .name {
+  font-size: 2em;
+  color: #DA1B78;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block
+}
+.middle-left .description {
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 10px;
+  display: block;
+  max-width: 420px; 
+  word-wrap: break;
+}
+
+/* Portfolio page styles */
+.project-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(58, 58, 90, 0.2);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+.project-title {
+  font-size: 1.5em;
+  color: #3F4C7A;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.project-desc {
+  font-size: 1em;
+  color: #fff;
+  min-height: 40px;
+  text-align: left;
+}
+
+.desc {
+  font-size: 1em;
+  color: #fff;
+  margin-top: 10px;
+  display: block;
+  word-wrap: break;
+}
+
+/* Portfolio grid styles */
+.portfolio-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+}
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  width: 80vw;
+  max-width: 900px;
+}
+.project-img {
+  width: 340px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(58,58,90,0.18);
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.github-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  width: 80vw;
+  max-width: 900px;
+  margin-top: 40px;
+}
+.github-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(58,58,90,0.18);
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  .project-row, .github-row {
+    grid-template-columns: 1fr;
+  }
+  .project-img, .github-img {
+    margin: 0 auto;
+  }
+}
+
+/* Service page styles */
+.service-section {
+  margin-bottom: 40px;
+  padding: 20px 28px;
+  background: rgba(58, 58, 90, 0.2);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  height: auto;
+}
+.service-section h2, .service-section h1 {
+  color: #DA1B78;
+}
+.service-section h3 {
+  color: #DA1B78;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+.service-section ul {
+  color: #fff;
+  font-size: 1em;
+  margin-left: 20px;
+}
+.service-section img {
+  width: 220px !important;
+  height: 180px !important;
+  object-fit: contain !important;
+  background: #fff;
+  margin-left: 40px !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(58,58,90,0.18);
+}
+.service-section > div {
+  flex: 1;
+}
+@media (max-width: 900px) {
+  .service-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 8px;
+  }
+  .service-section img {
+    width: 100% !important;
+    height: 180px !important;
+    margin: 18px 0 0 0 !important;
+  }
+}
+
+/* Bubble effect styles */
+.bubble {
+  position: fixed;
+  bottom: -60px;
+  border-radius: 50%;
+  background: rgba(173, 216, 230, 0.5); /* light blue, transparent */
+  box-shadow: 0 0 8px rgba(173,216,230,0.4);
+  cursor: pointer;
+  transition: transform 0.2s;
+  z-index: 1000; /* Lower value */
+  animation: riseBubble linear;
+}
+
+@keyframes riseBubble {
+  to {
+    bottom: 100vh;
+    opacity: 0.2;
+  }
+}
+
+.bubble-slider-container {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  background: rgba(1,2,27,0.8);
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: #DA1B78;
+  z-index: 2000;
+  font-size: 1em;
+}
+.bubble-slider-container label {
+  margin-right: 10px;
+}
+.pop-bubbles-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 70px; /* 20px (slider) + 50px (button height + margin) */
+  background-color: #3F4C7A;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 2001;
+}
+.vertical-line-up {
+  position: fixed;
+  right: 30px;
+  bottom: 120px;
+  width: 3px;
+  height: 40%;
+  background-color: #DA1B78;
+  border-radius: 2px;
+  z-index: 1001;
+}
+.pop-bubbles-btn:hover {
+  background-color: #DA1B78;
+}
+
+.main-img {
+  position: absolute;
+  z-index: 2000; /* Higher value so image is above bubbles */
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+}
+
+
+.switch-style-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  background-color: #3F4C7A;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 2001;
+}
+
+.switch-style-btn:hover {
+  background-color: #FB4323;
+  color: #fff;
+}
+
+.genai-desc {
+        color: #fff;
+        font-size: 1.1em;
+        margin-bottom: 24px;
+}
+
+.genai-title {
+        font-size: 2.2em;
+        color: #DA1B78;
+        margin-bottom: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+}
