@@ -103,3 +103,4 @@ function switchCSS() {
         localStorage.setItem('selectedStyle', 'alt');
     }
 }
+

@@ -43,7 +43,7 @@ body {
 .vertical-line {
   position: absolute;
   left: 30px;
-  top: 170px;
+  top: 180px;
   width: 3px;
   height: 40%;
   background-color: #DA1B78;
@@ -284,4 +284,18 @@ body {
 .switch-style-btn:hover {
   background-color: #FB4323;
   color: #fff;
+}
+
+.genai-desc {
+        color: #fff;
+        font-size: 1.1em;
+        margin-bottom: 24px;
+}
+
+.genai-title {
+        font-size: 2.2em;
+        color: #DA1B78;
+        margin-bottom: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
 }

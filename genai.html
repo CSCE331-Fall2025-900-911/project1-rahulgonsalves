@@ -1,17 +1,205 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GenAI</title>
+    <title>GenAI TV Show Recommender</title>
     <link id="main-style" rel="stylesheet" href="styles.css">
     <link id="alt-style" rel="stylesheet" href="styles2.css" disabled>
+    <style>
+      .genai-container {
+        max-width: 700px;
+        margin: 60px auto 0 auto;
+        background: rgba(58, 58, 90, 0.13);
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(58,58,90,0.10);
+        padding: 36px 32px 32px 32px;
+        text-align: center;
+      }
+      
+    
+      .genai-select {
+        font-size: 1.1em;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid #DA1B78;
+        margin-bottom: 18px;
+        margin-right: 10px;
+      }
+      .genai-btn {
+        background-color: #3F4C7A;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 22px;
+        font-size: 1.1em;
+        cursor: pointer;
+        font-weight: bold;
+        margin-bottom: 24px;
+        transition: background 0.3s;
+      }
+      .genai-btn:hover {
+        background: #3F4C7A;
+      }
+      .recommendations {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .show-card {
+        background: #222;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(58,58,90,0.18);
+        padding: 18px 24px;
+        color: #fff;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .show-title {
+        font-size: 1.3em;
+        color: #DA1B78;
+        font-weight: bold;
+      }
+      .show-summary {
+        font-size: 1em;
+        color: #fff;
+      }
+      .show-rating {
+        color: #FB4323;
+        font-size: 1em;
+        font-weight: bold;
+      }
+      .show-link {
+        color: #3F4C7A;
+        text-decoration: underline;
+        font-size: 1em;
+      }
+      @media (max-width: 700px) {
+        .genai-container {
+          padding: 18px 4px;
+        }
+      }
+    </style>
 </head>
 <body>
     <button class="switch-style-btn" onclick="switchCSS()">Switch Style</button>
-    <p>Content for the GenAI page goes here.</p>
-    <p><a href="index.html">Go to Index Page</a></p>
+    <div class="genai-container">
+      <div class="genai-title">AI TV Show Recommender</div>
+      <div class="genai-desc">Let AI recommend your next favorite TV show! Select a genre or mood and get personalized suggestions with summaries, ratings, and where to watch.</div>
+      <select id="genre" class="genai-select">
+        <option value="sci-fi">Sci-Fi</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="mystery">Mystery</option>
+        <option value="action">Action</option>
+        <option value="feelgood">Feel Good</option>
+        <option value="animated">Animated</option>
+      </select>
+      <button class="genai-btn" onclick="recommendShows()">Recommend Shows</button>
+      <div id="thinking" style="display:none; margin-top:18px; color:#DA1B78; font-size:1.1em; font-style:italic;">Thinking<span id="dots"></span>...</div>
+      <div class="recommendations" id="recommendations"></div>
+      <a href="index.html" class="genai-btn" style="display:inline-block; margin-top:18px;">Return to Home</a>
+    </div>
     <script src="functions.js"></script>
+    <script>
+      // Helper to shuffle an array
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+      // Animate thinking dots
+      let dotsInterval;
+      function startThinking() {
+        const dots = document.getElementById('dots');
+        let count = 0;
+        dots.textContent = '';
+        dotsInterval = setInterval(() => {
+          count = (count + 1) % 4;
+          dots.textContent = '.'.repeat(count);
+        }, 400);
+        document.getElementById('thinking').style.display = '';
+      }
+      function stopThinking() {
+        clearInterval(dotsInterval);
+        document.getElementById('thinking').style.display = 'none';
+      }
+      const showData = {
+        'sci-fi': [
+          { title: 'The Expanse', summary: 'A gripping space opera set in a colonized solar system, where a detective and a rogue crew unravel a vast conspiracy that threatens humanity.', rating: '8.5/10', link: 'https://www.amazon.com/The-Expanse/' },
+          { title: 'Black Mirror', summary: 'An anthology series exploring the dark, thought-provoking sides of technology and its impact on society, with each episode telling a unique story.', rating: '8.8/10', link: 'https://www.netflix.com/title/70264888' },
+          { title: 'Westworld', summary: 'A futuristic theme park populated by AI hosts unravels as guests and robots alike question reality and free will.', rating: '8.6/10', link: 'https://www.hbo.com/westworld' },
+          { title: 'Stranger Things', summary: 'A group of kids in a small town uncover supernatural mysteries and government secrets in this nostalgic, thrilling adventure.', rating: '8.7/10', link: 'https://www.netflix.com/title/80057281' }
+        ],
+        'comedy': [
+          { title: 'Brooklyn Nine-Nine', summary: 'A hilarious police sitcom following the antics of Detective Jake Peralta and his quirky colleagues in the NYPD’s 99th precinct.', rating: '8.4/10', link: 'https://www.hulu.com/series/brooklyn-nine-nine' },
+          { title: 'The Good Place', summary: 'A clever comedy about the afterlife, ethics, and what it means to be a good person, featuring a group of lovable misfits.', rating: '8.2/10', link: 'https://www.netflix.com/title/80113701' },
+          { title: 'Community', summary: 'A diverse group of students form a study group at a community college, leading to hilarious and heartfelt adventures.', rating: '8.5/10', link: 'https://www.netflix.com/title/70155589' },
+          { title: 'Parks and Recreation', summary: 'A mockumentary-style comedy about the quirky employees of Pawnee’s Parks Department and their hilarious adventures.', rating: '8.6/10', link: 'https://www.peacocktv.com/stream-tv/parks-and-recreation' }
+        ],
+        'drama': [
+          { title: 'Breaking Bad', summary: 'A high school chemistry teacher turned meth kingpin faces moral dilemmas and danger in this critically acclaimed drama.', rating: '9.5/10', link: 'https://www.netflix.com/title/70143836' },
+          { title: 'The Crown', summary: 'A lavish historical drama chronicling the reign of Queen Elizabeth II and the challenges of the British monarchy.', rating: '8.6/10', link: 'https://www.netflix.com/title/80025678' },
+          { title: 'Mad Men', summary: 'A look at the professional and personal lives of Madison Avenue advertising executives in the 1960s.', rating: '8.7/10', link: 'https://www.netflix.com/title/70136135' },
+          { title: 'The Sopranos', summary: 'A mob boss tries to balance family life with running a criminal organization in this groundbreaking drama.', rating: '9.2/10', link: 'https://www.hbo.com/the-sopranos' }
+        ],
+        'fantasy': [
+          { title: 'The Witcher', summary: 'A monster hunter for hire navigates a world of magic, politics, and destiny in this epic fantasy series.', rating: '8.1/10', link: 'https://www.netflix.com/title/80189685' },
+          { title: 'Game of Thrones', summary: 'Noble families vie for control of the Iron Throne in a sprawling world of dragons, intrigue, and betrayal.', rating: '9.2/10', link: 'https://www.hbo.com/game-of-thrones' },
+          { title: 'Shadow and Bone', summary: 'A young soldier discovers a magical power that could unite her war-torn world.', rating: '7.6/10', link: 'https://www.netflix.com/title/80236319' },
+          { title: 'His Dark Materials', summary: 'A brave girl journeys through parallel worlds in this adaptation of Philip Pullman’s fantasy trilogy.', rating: '7.8/10', link: 'https://www.hbo.com/his-dark-materials' }
+        ],
+        'mystery': [
+          { title: 'Sherlock', summary: 'A modern update to the classic detective stories, Sherlock Holmes and Dr. Watson solve complex crimes in contemporary London.', rating: '9.1/10', link: 'https://www.netflix.com/title/70202589' },
+          { title: 'Dark', summary: 'A mind-bending German thriller where the disappearance of a child exposes secrets and a time travel conspiracy across generations.', rating: '8.8/10', link: 'https://www.netflix.com/title/80100172' },
+          { title: 'Broadchurch', summary: 'Two detectives investigate a tragic death in a small town, uncovering secrets and lies.', rating: '8.4/10', link: 'https://www.netflix.com/title/70273682' },
+          { title: 'True Detective', summary: 'Anthology crime series with complex mysteries and deep character studies.', rating: '8.9/10', link: 'https://www.hbo.com/true-detective' }
+        ],
+        'action': [
+          { title: 'The Mandalorian', summary: 'A lone bounty hunter navigates the outer reaches of the galaxy, protecting a mysterious child in this Star Wars adventure.', rating: '8.7/10', link: 'https://www.disneyplus.com/series/the-mandalorian/3jLIGMDYINqD' },
+          { title: '24', summary: 'Counter-terrorist agent Jack Bauer races against the clock to stop threats in this real-time, adrenaline-fueled series.', rating: '8.4/10', link: 'https://www.hulu.com/series/24' },
+          { title: 'Arrow', summary: 'A billionaire playboy becomes a vigilante archer to fight crime and corruption in his city.', rating: '7.5/10', link: 'https://www.netflix.com/title/70242081' },
+          { title: 'Daredevil', summary: 'A blind lawyer by day, vigilante by night, fights crime in Hell’s Kitchen.', rating: '8.6/10', link: 'https://www.netflix.com/title/80018294' }
+        ],
+        'feelgood': [
+          { title: 'Ted Lasso', summary: 'An optimistic American football coach brings heart and humor to a struggling English soccer team, inspiring everyone around him.', rating: '8.8/10', link: 'https://tv.apple.com/show/ted-lasso/umc.cmc.vtoh0mn0xn7t3c643xqonfzy' },
+          { title: 'Parks and Recreation', summary: 'A mockumentary-style comedy about the quirky employees of Pawnee’s Parks Department and their hilarious adventures.', rating: '8.6/10', link: 'https://www.peacocktv.com/stream-tv/parks-and-recreation' },
+          { title: 'Schitt’s Creek', summary: 'A wealthy family loses everything and must adapt to life in a small town, finding love and laughter along the way.', rating: '8.5/10', link: 'https://www.netflix.com/title/80036165' },
+          { title: 'Kim’s Convenience', summary: 'A Korean-Canadian family runs a convenience store in Toronto, sharing laughs and life lessons.', rating: '8.2/10', link: 'https://www.netflix.com/title/80199128' }
+        ],
+        'animated': [
+          { title: 'Avatar: The Last Airbender', summary: 'A young hero must master the elements and bring peace to a war-torn world in this beloved animated epic.', rating: '9.3/10', link: 'https://www.netflix.com/title/70142405' },
+          { title: 'BoJack Horseman', summary: 'A washed-up sitcom star, who happens to be a horse, navigates fame, relationships, and self-discovery in this darkly comedic animation.', rating: '8.8/10', link: 'https://www.netflix.com/title/70300800' },
+          { title: 'Gravity Falls', summary: 'Twins Dipper and Mabel uncover supernatural mysteries in a quirky small town.', rating: '8.9/10', link: 'https://www.disneyplus.com/series/gravity-falls/1vYXkQ3yZ4gk' },
+          { title: 'Rick and Morty', summary: 'A genius scientist and his grandson go on wild, interdimensional adventures.', rating: '9.1/10', link: 'https://www.hulu.com/series/rick-and-morty' }
+        ]
+      };
+      function recommendShows() {
+        const genre = document.getElementById('genre').value;
+        const recDiv = document.getElementById('recommendations');
+        recDiv.innerHTML = '';
+        startThinking();
+        setTimeout(() => {
+          stopThinking();
+          const shows = shuffle([...showData[genre]]).slice(0, 2);
+          shows.forEach(show => {
+            recDiv.innerHTML += `
+              <div class="show-card">
+                <div class="show-title">${show.title}</div>
+                <div class="show-summary">${show.summary}</div>
+                <div class="show-rating">Rating: ${show.rating}</div>
+                <a class="show-link" href="${show.link}" target="_blank">Watch Now</a>
+              </div>
+            `;
+          });
+        }, 1200);
+      }
+    </script>
 </body>
 </html>
